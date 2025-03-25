@@ -6,11 +6,23 @@
 
 - **GitHub Copilot Agent** を使ったコード生成体験  
 - **Claude 3.7 Sonnet ** を使った自然言語からの支援  
-- シンプルな Python プロジェクトを題材にした実践(Python以外も用意しています)
-
-
+- シンプルな Python プロジェクトを題材にした実践
 
 ## 📦 構成
+
+```
+- .github/copilot-instructions.md
+- .vscode/settings.json
+```
+
+**.github/copilot-instructions.md**
+
+GitHub Copilot Agent を使ったコーディングの指示が記載されています。
+コード生成の体験をする際には、このファイルを参照してください。
+
+**.vscode/settings.json**
+
+GitHub Copilot の設定が記載されています。
 
 ## 🚀 始め方
 
@@ -31,7 +43,7 @@ Copilot Agent は GitHub Copilot Chat の一部として提供されています
 ### 2. VSCode Insiders をインストール
 
 GitHub Copilot Agent はpreview版です。そのため使うには VSCode Insiders が必要です。
-安定版では動作しないため、事前にインストールしてください。
+事前にインストールしてください。
 
 👉 https://code.visualstudio.com/insiders
 
@@ -50,4 +62,5 @@ Anthropic の Claude 3.7 Sonnet は、マルチステップの理解やコード
 
 ## 📚 参考・謝辞
 
-* [AIコーディング時代の開発環境構築：VS Code × Cline（Roo Code）で爆速開発！](https://zenn.dev/mkj/articles/cf8536923d9cd7) ルールを流用させていただいております。ありがとうございます。
+* [AIコーディング時代の開発環境構築：VS Code × Cline（Roo Code）で爆速開発！](https://zenn.dev/mkj/articles/cf8536923d9cd7) ルールなどを流用させていただいております。ありがとうございます。
+

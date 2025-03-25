@@ -1,0 +1,9 @@
+{
+    "github.copilot.chat.editor.temporalContext.enabled": true,
+    "github.copilot.chat.edits.temporalContext.enabled": true,
+    "terminal.integrated.shellIntegration.enabled": true,
+    "github.copilot.chat.terminalChatLocation": "terminal",
+    "github.copilot.chat.generateTests.codeLens": true,
+    "github.copilot.chat.newWorkspaceCreation.enabled": true,
+    "github.copilot.chat.search.semanticTextResults": true,
+}
