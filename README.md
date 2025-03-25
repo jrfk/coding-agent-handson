@@ -1,66 +1,96 @@
-# LLM Coding Agents Hands-on
+# 画像モザイク処理ツール
 
-このリポジトリは、AIコーディング支援ツールを体験するためのハンズオン用サンプルです。
+画像にモザイク処理を適用するPython製のCLIツールです。画像全体のモザイク処理と、顔認識を使用して顔部分のみをモザイク処理する機能を提供します。
 
-## ✅ 内容
+## 機能
 
-- **GitHub Copilot Agent** を使ったコード生成体験  
-- **Claude 3.7 Sonnet ** を使った自然言語からの支援  
-- シンプルな Python プロジェクトを題材にした実践
+- 画像全体へのモザイク処理
+- モザイクの強さ（粒度）の調整
+- 顔認識を使用した顔部分のみのモザイク処理
 
-## 📦 構成
+## インストール
 
-```
-- .github/copilot-instructions.md
-- .vscode/settings.json
-```
-
-**.github/copilot-instructions.md**
-
-GitHub Copilot Agent を使ったコーディングの指示が記載されています。
-コード生成の体験をする際には、このファイルを参照してください。
-
-**.vscode/settings.json**
-
-GitHub Copilot の設定が記載されています。
-
-## 🚀 始め方
-
-### 1. リポジトリをクローン
+このツールを使用するには、以下のコマンドでインストールしてください：
 
 ```bash
-git clone https://github.com/jrfk/coding-agent-handson.git
-cd coding-agent-handson
+# リポジトリをクローン
+git clone https://github.com/yourusername/mosaic-tool.git
+cd mosaic-tool
+
+# 依存パッケージのインストール
+pip install -e .
 ```
 
-### 2. GitHub Copilot Agent を有効化
+### 依存関係
 
-Copilot Agent は GitHub Copilot Chat の一部として提供されています。
-以下の公式ブログを参考にセットアップしてください：
+- Python 3.7以上
+- Pillow (PIL)
+- Click
+- OpenCV
+- dlib
 
-👉 [GitHub Copilot: The Agent Awakens (日本語)](https://github.blog/jp/2025-02-07-github-copilot-the-agent-awakens/)
+注: dlibのインストールには、C++コンパイラとCMakeが必要です。詳細は[dlib公式ドキュメント](https://github.com/davisking/dlib)を参照してください。
 
-### 2. VSCode Insiders をインストール
+## 使い方
 
-GitHub Copilot Agent はpreview版です。そのため使うには VSCode Insiders が必要です。
-事前にインストールしてください。
+### 基本的な使い方
 
-👉 https://code.visualstudio.com/insiders
+```bash
+# 画像全体にモザイク処理を適用する
+mosaic-tool input.jpg output.jpg --strength 5 --mode full
 
-### 4. Claude 3.7 Sonnet を試す（任意）
+# 顔部分のみにモザイク処理を適用する
+mosaic-tool input.jpg output.jpg --strength 5 --mode face
+```
 
-Anthropic の Claude 3.7 Sonnet は、マルチステップの理解やコードレビューの支援に適しています。
-指示文の比較や、アウトライン作成などにも使えます。
+### オプション
 
-👉 https://claude.ai
+- `--strength`: モザイクの強さを指定します (1-10の整数、デフォルト: 5)
+- `--mode`: 処理モードを指定します (full: 画像全体、face: 顔のみ、デフォルト: full)
 
-## 💡 試せること
--	自然言語からのコード生成・ファイル作成
--	関数の説明、要約、修正提案
--	LLM によるペアプロ的な支援体験
--	Claude を使った指示文の改善・検証
+### 使用例
 
-## 📚 参考・謝辞
+```bash
+# 最弱のモザイク処理を適用
+mosaic-tool input.jpg output.jpg --strength 1
 
-* [AIコーディング時代の開発環境構築：VS Code × Cline（Roo Code）で爆速開発！](https://zenn.dev/mkj/articles/cf8536923d9cd7) ルールなどを流用させていただいております。ありがとうございます。
+# 最強のモザイク処理を適用
+mosaic-tool input.jpg output.jpg --strength 10
+
+# 顔のみにモザイク処理を適用
+mosaic-tool portrait.jpg anonymized.jpg --mode face
+```
+
+## ライセンス
+
+MITライセンス
+
+## 開発者向け情報
+
+### テスト実行
+
+```bash
+pytest
+```
+
+### ディレクトリ構成
+
+```
+mosaic-tool/
+├── docs/                  # ドキュメント
+│   ├── requirements.md    # 要件定義書
+│   └── design.md          # 設計書
+├── src/                   # ソースコード
+│   ├── __init__.py        
+│   ├── mosaic_tool.py     # CLIインターフェース
+│   ├── image_processor.py # 画像処理エンジン
+│   └── face_detector.py   # 顔検出モジュール
+├── tests/                 # テストコード
+│   ├── __init__.py
+│   ├── test_mosaic_tool.py
+│   ├── test_image_processor.py
+│   └── test_face_detector.py
+├── setup.py               # セットアップスクリプト
+└── README.md              # このファイル
+```
 
