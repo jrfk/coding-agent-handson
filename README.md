@@ -19,6 +19,7 @@
 ```bash
 git clone https://github.com/jrfk/coding-agent-handson.git
 cd coding-agent-handson
+```
 
 ### 2. GitHub Copilot Agent を有効化
 
